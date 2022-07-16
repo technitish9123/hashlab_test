@@ -14,7 +14,8 @@ import { FaWallet } from "react-icons/fa";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "../components/wallet/Connectors";
 import { Web3ReactProvider } from "@web3-react/core";
-import Web3 from "web3";
+// import Web3 from "web3";
+
 
 export default function Home() {
   const [showDisconnect, setShowDisconnect] = useState(false);
@@ -35,13 +36,15 @@ export default function Home() {
   async function disconnect() {
     try {
       deactivate();
+      window.localStorage.clear();
+   
     } catch (ex) {
       console.log(ex);
     }
   }
 
   return (
-    <div className="grid grid-cols-5 h-[110vh]">
+    <div className="grid grid-cols-5 h-[110vh] grid-flow-col hover:grid-flow-row">
       <div className="bg-red-100 col-span-3 pl-24 leftBody">
         <div className="flex justify-between text-center mb-12 mt-8 ">
           <div className="  ">
@@ -109,14 +112,14 @@ export default function Home() {
           {active ? (
             <button
               onClick={connect}
-              class="bg-transparent flex justify-between hover:bg-[#DE6658] text-white text-2xl w-[450px] font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6"
+              className="pr-8 bg-transparent flex justify-between hover:bg-[#DE6658] w-48 text-white lg:text-2xl md:text-xl sm:text-lg lg:w-[450px] md:w-72 sm:w-56 font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6"
             >
               <FaWallet size={28} color="#D95141" /> wallet connected
             </button>
           ) : (
             <button
               onClick={connect}
-              class="bg-transparent flex justify-between hover:bg-[#DE6658] text-white text-2xl w-[450px] font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6"
+              className="bg-transparent flex justify-between hover:bg-[#DE6658] text-white text-2xl w-48 lg:w-[450px] md:w-72 sm:w-56 font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6"
             >
               <FaWallet size={28} color="#D95141" /> connect your wallet and try
               now
@@ -140,15 +143,15 @@ export default function Home() {
           </h1>
 
           <input
-            class="bg-[#282B33] flex justify-center  text-[#5D6170] text-2xl w-[450px] font-semibold  py-2 px-4  my-10 mr-6"
+            className="bg-[#282B33] flex justify-center  text-[#5D6170] text-2xl lg:w-[450px] md:w-72 sm:w-56 font-semibold w-48 py-2 px-4  my-10 mr-6"
             placeholder="your hash id"
           />
 
           <input
-            class="bg-[#282B33] flex justify-center  text-[#5D6170] text-2xl w-[450px] font-semibold  py-2 px-4  my-10 mr-6"
+            className="bg-[#282B33] flex justify-center  text-[#5D6170] text-2xl lg:w-[450px] md:w-72 sm:w-56 font-semibold w-48 py-2 px-4  my-10 mr-6"
             placeholder="enter your password"
           />
-          <button class="bg-transparent flex justify-center hover:bg-[#DE6658] text-white text-2xl w-[450px] font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6">
+          <button className="bg-transparent flex justify-center hover:bg-[#DE6658] text-white text-2xl lg:w-[450px] md:w-72 sm:w-56 w-48 font-semibold hover:text-white py-2 px-4 border border-[#DE6658] hover:border-transparent mr-6">
             login
           </button>
         </div>
