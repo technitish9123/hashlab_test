@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -13,4 +17,37 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.leftBody {
+
+  background-color: "FEE2E2";
+}
+
+.loginHead {
+  width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid #000; 
+   line-height: 0.1em;
+   margin: 10px 0 20px; 
+}
+
+.loginHead span {
+  padding: 0 10px;
+}
+.loginHead {
+  display: flex;
+  flex-direction: row;
+}
+.loginHead:before, .loginHead:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+.loginHead:before {
+  margin-right: 10px
+}
+.loginHead:after {
+  margin-left: 10px
 }
